@@ -1,0 +1,91 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyP4KHmNXVra9rxnvXyPatxn",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/nalu00/Aprendizado-de-Maquina/blob/main/DeveresDeCasa%20/Dever-03\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 14,
+      "metadata": {
+        "id": "1GwgrzFO5Cdw",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "e4a5b6ab-bf54-492c-97ee-343773d950c5"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Digite um nome: eduardo\n",
+            "Eduardo tem 35 anos, é a pessoa mais velha da lista.\n"
+          ]
+        }
+      ],
+      "source": [
+        "import csv\n",
+        "\n",
+        "dados_csv = [\n",
+        "    ['Ana', 25],\n",
+        "    ['Bruno', 30],\n",
+        "    ['Carla', 22],\n",
+        "    ['Daniel', 28],\n",
+        "    ['Eduardo', 35]\n",
+        "]\n",
+        "\n",
+        "with open('dados.csv', 'w', newline='') as arquivo_csv:\n",
+        "    escritor_csv = csv.writer(arquivo_csv)\n",
+        "    escritor_csv.writerow(['Nome', 'Idade'])\n",
+        "    escritor_csv.writerows(dados_csv)\n",
+        "\n",
+        "lista_dados = []\n",
+        "with open('dados.csv', 'r') as arquivo_csv:\n",
+        "    leitor_csv = csv.DictReader(arquivo_csv)\n",
+        "    for linha in leitor_csv:\n",
+        "        lista_dados.append(linha)\n",
+        "\n",
+        "nome_usuario = input(\"Digite um nome: \")\n",
+        "\n",
+        "encontrado = False\n",
+        "idades = [int(pessoa['Idade']) for pessoa in lista_dados]\n",
+        "mais_velho = max(idades)\n",
+        "\n",
+        "for pessoa in lista_dados:\n",
+        "    if pessoa['Nome'].lower() == nome_usuario.lower():\n",
+        "        encontrado = True\n",
+        "        idade = int(pessoa['Idade'])\n",
+        "        mensagem = f\"{pessoa['Nome']} tem {idade} anos, \"\n",
+        "        mensagem += \"é a pessoa mais velha da lista.\" if idade == mais_velho else \"não é a pessoa mais velha da lista.\"\n",
+        "        print(mensagem)\n",
+        "        break\n",
+        "\n",
+        "if not encontrado:\n",
+        "    print(\"Nome não encontrado.\")"
+      ]
+    }
+  ]
+}
