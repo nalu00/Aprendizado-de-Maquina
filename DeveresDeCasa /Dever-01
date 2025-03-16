@@ -1,0 +1,66 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMeffuJGR1SKiDagmhBzxsX",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/nalu00/Aprendizado-de-Maquina/blob/main/DeveresDeCasa%20/Dever-01\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 8,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1GwgrzFO5Cdw",
+        "outputId": "b44d6cfa-99de-448a-a3fc-5f59845aef62"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Digite o número do registro que deseja visualizar: 5\n",
+            "Registro 5: Nome: Carlos Gomes; Data de nascimento: 01/03/1990; Data de cadastro: 19/02/2025 as 16:20 horas\n"
+          ]
+        }
+      ],
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "def ler_e_formatar_csv_pandas(nome_arquivo, indice):\n",
+        "    df = pd.read_csv(nome_arquivo)\n",
+        "    if 0 <= indice < len(df):\n",
+        "        registro = df.iloc[indice]\n",
+        "        data_nasc = pd.to_datetime(registro['dataNasc']).strftime('%d/%m/%Y')\n",
+        "        data_cadastro = pd.to_datetime(registro['dataCadastrado']).strftime('%d/%m/%Y')\n",
+        "        print(f\"Registro {indice + 1}: Nome: {registro['nome']}; Data de nascimento: {data_nasc}; Data de cadastro: {data_cadastro} as {registro['horaCadastro']} horas\")\n",
+        "    else:\n",
+        "        print(\"Índice de registro inválido.\")\n",
+        "\n",
+        "ler_e_formatar_csv_pandas('dados.csv', int(input(\"Digite o número do registro que deseja visualizar: \")) -1)"
+      ]
+    }
+  ]
+}
