@@ -1,0 +1,83 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyO/KuOcS0rqh/HKpttuFDFl",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/nalu00/Aprendizado-de-Maquina/blob/main/DeveresDeCasa%20/Dever-02\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 9,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1GwgrzFO5Cdw",
+        "outputId": "67376b42-bf36-40c2-fb59-6bc0d1ab3aee"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Digite uma frase: Meu nome é Ana Luísa\n",
+            "Caracteres: 20\n",
+            "Palavras: 5\n",
+            "Maior palavra: Luísa\n",
+            "Inversa (caracteres): asíuL anA é emon ueM\n",
+            "Inversa (palavras): Luísa Ana é nome Meu\n",
+            "Maiúsculas: MEU NOME É ANA LUÍSA\n",
+            "Minúsculas: meu nome é ana luísa\n",
+            "Tupla: ('Meu', 'nome', 'é', 'Ana', 'Luísa')\n"
+          ]
+        }
+      ],
+      "source": [
+        "frase = input(\"Digite uma frase: \").strip()\n",
+        "\n",
+        "if not frase:\n",
+        "    print(\"Entrada inválida. Por favor, digite uma frase.\")\n",
+        "else:\n",
+        "    caracteres = len(frase)\n",
+        "    palavras = frase.split()\n",
+        "    num_palavras = len(palavras)\n",
+        "    maior_palavra = max(palavras, key=len, default=\"\")\n",
+        "    inversa_caracteres = frase[::-1]\n",
+        "    inversa_palavras = \" \".join(palavras[::-1])\n",
+        "    maiusculas = frase.upper()\n",
+        "    minusculas = frase.lower()\n",
+        "    tupla_palavras = tuple(palavras)\n",
+        "\n",
+        "    print(f\"Caracteres: {caracteres}\")\n",
+        "    print(f\"Palavras: {num_palavras}\")\n",
+        "    print(f\"Maior palavra: {maior_palavra}\")\n",
+        "    print(f\"Inversa (caracteres): {inversa_caracteres}\")\n",
+        "    print(f\"Inversa (palavras): {inversa_palavras}\")\n",
+        "    print(f\"Maiúsculas: {maiusculas}\")\n",
+        "    print(f\"Minúsculas: {minusculas}\")\n",
+        "    print(f\"Tupla: {tupla_palavras}\")"
+      ]
+    }
+  ]
+}
