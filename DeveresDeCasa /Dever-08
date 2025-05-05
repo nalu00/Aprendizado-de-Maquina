@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyMWu3HXftIlw+0yuzWZ3fTW",
+      "authorship_tag": "ABX9TyMbjrMg7QIvGFxFGiNfz4W1",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -28,49 +28,35 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 1,
+      "execution_count": null,
       "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "id": "IblGwLrail7o",
-        "outputId": "e5d5e837-89fb-4ae2-9e03-13c171e9a063"
+        "id": "3neBToVQpO69"
       },
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "Acurácia: 0.9777777777777777\n"
-          ]
-        }
-      ],
+      "outputs": [],
       "source": [
-        "# Importando bibliotecas\n",
+        "# Importando bibliotecas necessárias\n",
         "from sklearn.datasets import load_iris\n",
-        "from sklearn.model_selection import train_test_split\n",
         "from sklearn.neighbors import KNeighborsClassifier\n",
-        "from sklearn.metrics import accuracy_score\n",
         "\n",
         "# Carregando o dataset Iris\n",
         "iris = load_iris()\n",
-        "X = iris.data\n",
-        "y = iris.target\n",
+        "X = iris.data      # Atributos (features)\n",
+        "y = iris.target    # Rótulos (classes)\n",
         "\n",
-        "# Dividindo os dados em treino e teste\n",
-        "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)\n",
-        "\n",
-        "# Criando o modelo KNN com 3 vizinhos\n",
-        "knn = KNeighborsClassifier(n_neighbors=3)\n",
+        "# Criando o modelo com 3 vizinhos\n",
+        "modelo = KNeighborsClassifier(n_neighbors=3)\n",
         "\n",
         "# Treinando o modelo\n",
-        "knn.fit(X_train, y_train)\n",
+        "modelo.fit(X, y)\n",
         "\n",
-        "# Fazendo previsões\n",
-        "y_pred = knn.predict(X_test)\n",
+        "# Testando o modelo com uma nova flor\n",
+        "entrada = [[5.0, 3.6, 1.4, 0.2]]  # exemplo de entrada\n",
         "\n",
-        "# Mostrando a acurácia\n",
-        "print(\"Acurácia:\", accuracy_score(y_test, y_pred))\n"
+        "# Fazendo a previsão\n",
+        "resultado = modelo.predict(entrada)\n",
+        "\n",
+        "# Mostrando o nome da espécie prevista\n",
+        "print(\"Espécie prevista:\", iris.target_names[resultado[0]])"
       ]
     }
   ]
