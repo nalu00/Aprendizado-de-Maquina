@@ -1,0 +1,77 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMWu3HXftIlw+0yuzWZ3fTW",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/nalu00/Aprendizado-de-Maquina/blob/main/DeveresDeCasa/Dever-08\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "IblGwLrail7o",
+        "outputId": "e5d5e837-89fb-4ae2-9e03-13c171e9a063"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Acurácia: 0.9777777777777777\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Importando bibliotecas\n",
+        "from sklearn.datasets import load_iris\n",
+        "from sklearn.model_selection import train_test_split\n",
+        "from sklearn.neighbors import KNeighborsClassifier\n",
+        "from sklearn.metrics import accuracy_score\n",
+        "\n",
+        "# Carregando o dataset Iris\n",
+        "iris = load_iris()\n",
+        "X = iris.data\n",
+        "y = iris.target\n",
+        "\n",
+        "# Dividindo os dados em treino e teste\n",
+        "X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)\n",
+        "\n",
+        "# Criando o modelo KNN com 3 vizinhos\n",
+        "knn = KNeighborsClassifier(n_neighbors=3)\n",
+        "\n",
+        "# Treinando o modelo\n",
+        "knn.fit(X_train, y_train)\n",
+        "\n",
+        "# Fazendo previsões\n",
+        "y_pred = knn.predict(X_test)\n",
+        "\n",
+        "# Mostrando a acurácia\n",
+        "print(\"Acurácia:\", accuracy_score(y_test, y_pred))\n"
+      ]
+    }
+  ]
+}
