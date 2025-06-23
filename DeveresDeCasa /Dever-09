@@ -1,75 +1,13 @@
-{
-  "nbformat": 4,
-  "nbformat_minor": 0,
-  "metadata": {
-    "colab": {
-      "provenance": [],
-      "authorship_tag": "ABX9TyNdiTVFEPPjbAE0z509IcpM",
-      "include_colab_link": true
-    },
-    "kernelspec": {
-      "name": "python3",
-      "display_name": "Python 3"
-    },
-    "language_info": {
-      "name": "python"
-    }
-  },
-  "cells": [
-    {
-      "cell_type": "markdown",
-      "metadata": {
-        "id": "view-in-github",
-        "colab_type": "text"
-      },
-      "source": [
-        "<a href=\"https://colab.research.google.com/github/nalu00/Aprendizado-de-Maquina/blob/main/DeveresDeCasa%20/Dever-09\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
-      ]
-    },
-    {
-      "cell_type": "code",
-      "execution_count": null,
-      "metadata": {
-        "id": "IZaW_oNSUt6b"
-      },
-      "outputs": [],
-      "source": []
-    },
-    {
-      "cell_type": "code",
-      "source": [
-        "# Importando as bibliotecas\n",
-        "from sklearn.datasets import load_iris\n",
-        "from sklearn.model_selection import train_test_split\n",
-        "\n",
-        "# Carregando o dataset Iris\n",
-        "iris = load_iris()\n",
-        "X = iris.data\n",
-        "y = iris.target\n",
-        "\n",
-        "# Separando 40% para treino (restante 60% vai para teste)\n",
-        "X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.4, random_state=42)\n",
-        "\n",
-        "# Mostrando o número de itens no conjunto de teste\n",
-        "print(\"Quantidade de itens no conjunto de teste:\", len(X_test))"
-      ],
-      "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "id": "Kj3h0puTUuUM",
-        "outputId": "876cb532-1133-4638-a66a-f373158048af"
-      },
-      "execution_count": 1,
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "Quantidade de itens no conjunto de teste: 90\n"
-          ]
-        }
-      ]
-    }
-  ]
-}
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+
+# Carregando o dataset Iris
+iris = load_iris()
+X = iris.data
+y = iris.target
+
+# Dividindo os dados com 40% para treino
+X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.4, random_state=42)
+
+# Imprimindo a quantidade de itens na amostra de teste
+print("Quantidade de itens na amostra de teste:", len(X_test))
